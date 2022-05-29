@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import httpResponse
+from django.http import HttpResponse
 
 # Create your views here.
-def artHome(request):
-    return httpResponse("Hello, world. You're at the artgallery .")
+def artgallery(request):
+    return render(request, 'artgallery.html')
