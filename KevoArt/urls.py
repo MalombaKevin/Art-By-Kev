@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url('^admin/', admin.site.urls),
-    url('^artgallery/', include('artgallery.urls')),
+    url('', include('artgallery.urls')),
 ]
