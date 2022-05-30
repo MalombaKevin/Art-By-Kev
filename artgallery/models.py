@@ -10,6 +10,11 @@ class Category_Photo(models.Model):
     
     def save_category(self):
         self.save()
+    
+    # @classmethod
+    # def search_by_category(cls, search_term):
+    #     category = cls.objects.filter(category_name__icontains=search_term)
+    #     return category
 
 class Where_Photo(models.Model):
     country = models.CharField(max_length=30)
@@ -46,8 +51,8 @@ class Image(models.Model):
     
     @classmethod
     def search_by_category(cls,search_term):
-        categories = cls.objects.filter(image_category__category_name__icontains=search_term)
-        return categories
+        category = cls.objects.filter(image_category__category_name__icontains=search_term)
+        return category
     
    
 

@@ -25,8 +25,8 @@
   {% include "navbar.html" %}
 
   <div class="container-fluid" align="center">
-    <div class="row" style="margin-left:32.8%">
-      <div class="col-md-3">
+    <div class="row middle">
+      <div class="col-md-4">
         <div align="center">
           <form class="navbar-form" role="search" action="{url, 'search_results'}">
     
@@ -41,7 +41,7 @@
     
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div  align="center">
           <form class="navbar-form" role="search" action="{url, 'search_results'}">
     
@@ -64,11 +64,11 @@
         <div class="thumbnail">
           
             <h3>{{image.image_name}}</h3>
-            <img src="{{image.image.url}}" class="img-responsive" alt="Image" >
-            <p>{{image.id}}</p>
+            <img src="{{image.image.url}}" class="img-responsive" alt="Image" ><br><br>
             <a href="{% url 'artview' %}">
               <button type="button" class="btn btn-primary">Open Image</button>
             </a>
+          
             
     
           
@@ -76,6 +76,8 @@
       </div>
       {% endfor %}
     </div>
+
+
 
   
 
