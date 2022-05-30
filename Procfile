@@ -1,0 +1,1 @@
+web: gunicorn art-by-kev.wsgi --log-file -
