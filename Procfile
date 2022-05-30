@@ -1,1 +1,1 @@
-web: gunicorn art-by-kev.wsgi --log-file -
+web: gunicorn KevoArt.wsgi --log-file -
