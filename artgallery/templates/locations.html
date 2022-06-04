@@ -22,9 +22,9 @@
 <body>
     {% include "navbar.html" %}
     
-    {% if categories %}
+    {% if places %}
 
-    {% for image in categories %}
+    {% for image in places %}
     <div class="col-md-4">
       <div class="thumbnail">
         
@@ -34,6 +34,8 @@
           <a href="{% url 'artview' %}">
             <button type="button" class="btn btn-primary">Open Image</button><br>
           </a>
+      </div>
+      </div>
           
     {% endfor %}
   {% endif %}

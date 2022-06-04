@@ -25,3 +25,9 @@ def search_results(request):
     # else:
     #     message = "You haven't searched for any term"
     #     return render(request, 'search.html', {"message":message})
+
+def location_search(request):
+    if 'location' in request.GET and request.GET['location']:
+        search_term = request.GET.get('location')
+        search_locations= Image.search_by_location(search_term)
+        return render(request, 'locations.html', {'places': search_locations})

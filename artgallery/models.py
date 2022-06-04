@@ -16,9 +16,10 @@ class Category_Photo(models.Model):
     #     category = cls.objects.filter(category_name__icontains=search_term)
     #     return category
 
+
 class Where_Photo(models.Model):
     country = models.CharField(max_length=30)
-    city = models.CharField(max_length=30, blank=True)
+
 
     def __str__(self):
         return self.country
@@ -53,6 +54,11 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         category = cls.objects.filter(image_category__category_name__icontains=search_term)
         return category
+    
+    @classmethod
+    def search_by_location(cls,search_term):
+        location = cls.objects.filter(location_taken__country__icontains=search_term)
+        return location
     
    
 

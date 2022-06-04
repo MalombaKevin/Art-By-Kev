@@ -28,7 +28,7 @@
     <div class="row middle">
       <div class="col-md-4">
         <div align="center">
-          <form class="navbar-form" role="search" action="{url, 'search_results'}">
+          <form class="navbar-form" role="search" action="{% url 'search_results'%}">
     
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search Art By Category" name="category">
@@ -43,7 +43,7 @@
       </div>
       <div class="col-md-4">
         <div  align="center">
-          <form class="navbar-form" role="search" action="{url, 'search_results'}">
+          <form class="navbar-form" role="search" action="{% url 'locations' %}">
     
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Find Art By Location" name="location">
@@ -55,8 +55,10 @@
           </form>
     
         </div>
+      
       </div>
     </div>
+    
     
     <div align="center">
       {% for image in images %}
@@ -64,11 +66,12 @@
         <div class="thumbnail">
           
             <h3>{{image.image_name}}</h3>
-            <img src="{{image.image.url}}" class="img-responsive" alt="Image" style="height:30rem; width:100%"><br><br>
+            <img src="{{image.image.url}}" class="ig-responsive" alt="Image" style="height:30rem; width:100%"><br><br>
             <p><span style="color:blueviolet">Photo taken in:</span> {{image.location_taken}}</p>
             <a href="{% url 'artview' %}">
-              <button type="button" class="btn btn-primary">Open Image</button>
+              <button type="button" class="btn btn-primary">Open Image</button><br>
             </a>
+            
           
             
     
