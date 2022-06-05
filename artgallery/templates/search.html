@@ -14,7 +14,7 @@
 
   {% block styles %}
   {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/art.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'css/art.css' %}"> -->
   {% endblock %}
 
 
@@ -36,19 +36,41 @@
 
   {% if categories %}
 
-  {% for image in categories %}
-  <div class="col-md-4" align="center">
-    <div class="thumbnail">
+  <div class="container-fluid" align="center">
+    <div class="row">
+      <div class="col-md-6">
+        {% for image in categories %}
+        <div>
+          <div class="thumbnail">
 
-      <h3>{{image.image_name}}</h3>
-      <img src="{{image.image.url}}" class="ig-responsive" alt="Image" style="height:30rem; width:100%"><br><br>
-      <p><span style="color:blueviolet">Photo taken in:</span> {{image.location_taken}}</p>
-      <a href="{% url 'artgallery' %}">
-        <button type="button" class="btn btn-primary">Open Image</button><br>
-      </a>
+            <img src="{{image.image.url}}" class="img-responsive" alt="Image" style="height:40rem; width:100%">
 
-      {% endfor %}
-      {% endif %}
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-md-6" style="height:50rem">
+        {% for image in categories%}
+        <div>
+          <div class="thumbnail" style="height:41rem">
+
+          <h3>{{image.image_name}}</h3>
+          <hr>
+          <h4 style="color:blue">Description</h4>
+          <h4>{{image.image_description}}</h4>
+
+          <h4> <span style="color:blue">Location Taken: </span> {{image.location_taken}}</h4>
+
+          <h4> <span style="color:blue">Category:</span> {{image.image_category}}</h4>
+          <h4><span style="color:blue">Image Link: </span></h4>
+          <input type="text" name="" value="{{image.image.url}}">
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+   {% endif %}
 
 </body>
 

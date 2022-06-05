@@ -2,67 +2,91 @@
 {% load static%}
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
 
   {% if title %}
   <title>Moringa Tribune - {{title}}</title>
   {% else %}
-    <title> Art By Kev </title>
+  <title> Art By Kev </title>
   {% endif %}
 
   {% block styles %}
   {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/art.css' %}">
-{% endblock %}
+  <!-- <link rel="stylesheet" href="{% static 'css/art.css' %}"> -->
+  {% endblock %}
 
 
 
 </head>
+
 <body>
-    {% include "navbar.html" %}
-    <div class="container" align="center" style="color:white">
-      <div class="row">
-        {% if places %}
-        <h2>Found {{ places|length }} art in {{message}}</h2>
-        {% else %}
-        <h2> Found 0 art in {{message}}</h2>
-        {% endif %}
-  
-      </div>
+  {% include "navbar.html" %}
+  <div class="container" align="center">
+    <div class="row">
+      {% if places %}
+      <h2>Found {{ places|length }} art in {{message}}</h2>
+      {% else %}
+      <h2> Found 0 art in {{message}}</h2>
+      {% endif %}
+
     </div>
-    
-    {% if places %}
+  </div>
 
-    {% for image in places %}
-    <div class="col-md-4" align="center">
-      <div class="thumbnail">
-        
+  {% if places %}
+  <div class="container-fluid" align="center">
+    <div class="row">
+      <div class="col-md-6">
+        {% for image in places %}
+        <div>
+          <div class="thumbnail">
+
+            <img src="{{image.image.url}}" class="img-responsive" alt="Image" style="height:40rem; width:100%">
+
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-md-6" style="height:50rem">
+        {% for image in places %}
+        <div>
+          <div class="thumbnail" style="height:41rem">
+
           <h3>{{image.image_name}}</h3>
-          <img src="{{image.image.url}}" class="ig-responsive" alt="Image" style="height:30rem; width:100%"><br><br>
-          <p><span style="color:blueviolet">Photo taken in:</span> {{image.location_taken}}</p>
-          <a href="{% url 'artgallery' %}">
-            <button type="button" class="btn btn-primary">Open Image</button><br>
-          </a>
+          <hr>
+          <h4 style="color:blue">Description</h4>
+          <h4>{{image.image_description}}</h4>
+
+          <h4> <span style="color:blue">Location Taken: </span> {{image.location_taken}}</h4>
+
+          <h4> <span style="color:blue">Category:</span> {{image.image_category}}</h4>
+          <h4><span style="color:blue">Image Link: </span></h4>
+          <input type="text" name="" value="{{image.image.url}}">
+
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      </div>
-          
-    {% endfor %}
-  {% endif %}
-  
+
+      {% endif %}
+
 </body>
+
 </html>
-    
-
-    
-   
 
 
-    
 
-    {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
-    {% endblock %}
+
+
+
+
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% bootstrap_javascript %}
+{% endblock %}
 </body>
+
 </html>
