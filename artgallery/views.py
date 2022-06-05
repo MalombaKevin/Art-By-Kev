@@ -9,8 +9,8 @@ def artgallery(request):
     
     return render(request, 'index.html', {"images":images})
 
-def artview(request):
-    art = Image.objects.filter(id = 6)
+def artview(request, id):
+    art = Image.objects.filter(id=id)
     
     return render(request, 'artview.html', {"images":art})
 
@@ -21,13 +21,18 @@ def search_results(request):
         searched_images = Image.search_by_category(search_term)
         message = f"{search_term}"
         
-        return render(request, 'search.html', {"categories":searched_images})
-    # else:
-    #     message = "You haven't searched for any term"
-    #     return render(request, 'search.html', {"message":message})
+        return render(request, 'search.html', {"message": message, "categories":searched_images})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html', {"message":message})
 
 def location_search(request):
     if 'location' in request.GET and request.GET['location']:
         search_term = request.GET.get('location')
         search_locations= Image.search_by_location(search_term)
-        return render(request, 'locations.html', {'places': search_locations})
+        message = f"{search_term}"
+        return render(request, 'locations.html', {"message": message, 'places': search_locations})
+    
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'locations.html', {"message":message})

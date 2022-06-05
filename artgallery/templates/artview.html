@@ -24,6 +24,8 @@
 <body>
     {% include "navbar.html" %}
 
+    
+
     <div class="container-fluid" align="center">
         <div class="row">
             <div class="col-md-7">
@@ -50,7 +52,7 @@
                     
                     <h4> <span style="color:blue">Location Taken: </span> {{image.location_taken}}</h4>
                     
-                    <h4>  {{image.image_category}}</h4>
+                    <h4> <span style="color:blue">Category:</span>  {{image.image_category}}</h4>
                      <h4><span style="color:blue">Image Link: </span></h4>
                     <input type="text" name="" value="{{image.image.url}}">
 

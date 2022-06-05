@@ -38,6 +38,7 @@
                 <option value="River">
                 <option value="Opera">
                 <option value="Sports">
+                <option value ="Nobel Peace Prize">
               </datalist>
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -53,7 +54,18 @@
           <form class="navbar-form" role="search" action="{% url 'locations' %}">
     
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Find Art By Location" name="location">
+              <input list="locations" type="text" class="form-control" placeholder="Find Art By Location" name="location">
+             <datalist id="locations">
+               <option value="Kenya">
+               <option value="South Sudan">
+               <option value="France">
+               <option value="Norway">
+              <option value="Undisclosed Location">
+              <option value="USA">
+
+
+             </datalist>
+             
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
               </div>
@@ -76,10 +88,10 @@
             <img src="{{image.image.url}}" class="ig-responsive" alt="Image" style="height:30rem; width:100%"><br><br>
             <p><span style="color:blueviolet">Photo taken in:</span> {{image.location_taken}}</p>
             <p><span style="color:blueviolet">Category:</span> {{image.image_category}}</p>
-            <a href="{% url 'artview' %}">
+            <a href="artview/{{image.id}}">
               <button type="button" class="btn btn-primary">Open Image</button><br>
             </a>
-            
+             
           
             
     
