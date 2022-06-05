@@ -10,7 +10,7 @@ def artgallery(request):
     return render(request, 'index.html', {"images":images})
 
 def artview(request):
-    art = Image.objects.filter(id=5)
+    art = Image.objects.filter(id = 6)
     
     return render(request, 'artview.html', {"images":art})
 
